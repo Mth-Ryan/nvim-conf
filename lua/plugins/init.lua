@@ -29,6 +29,7 @@ local M = {
       require("plugins.luasnip"),
       require("plugins.which-key"),
       require("plugins.lualine"),
+      require("plugins.ibl"),
     })
   end
 }
