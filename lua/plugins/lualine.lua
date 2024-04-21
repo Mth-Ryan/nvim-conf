@@ -12,13 +12,13 @@ local colors = {
 
 local theme = {
   normal = {
-    a = { fg = colors.bg, bg = colors.blue, gui = 'bold' },
+    a = { fg = colors.bg, bg = colors.orange, gui = 'bold' },
     b = { fg = colors.fg, bg = colors.dark },
     c = { fg = colors.light, bg = colors.darker },
   },
   insert = { a = { fg = colors.bg, bg = colors.green, gui = 'bold' } },
-  visual = { a = { fg = colors.bg, bg = colors.orange, gui = 'bold' } },
-  replace = { a = { fg = colors.bg, bg = colors.pink, gui = 'bold' } },
+  visual = { a = { fg = colors.bg, bg = colors.pink, gui = 'bold' } },
+  replace = { a = { fg = colors.bg, bg = colors.blue, gui = 'bold' } },
   inactive = {
     a = { fg = colors.fg, bg = colors.dark, gui = 'bold' },
     b = { fg = colors.fg, bg = colors.darker },

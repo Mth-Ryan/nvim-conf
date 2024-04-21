@@ -30,6 +30,7 @@ local M = {
       require("plugins.which-key"),
       require("plugins.lualine"),
       require("plugins.ibl"),
+      require("plugins.metals"),
     })
   end
 }
