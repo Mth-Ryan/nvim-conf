@@ -31,6 +31,7 @@ local M = {
       require("plugins.lualine"),
       require("plugins.ibl"),
       require("plugins.metals"),
+      require("plugins.tailwind-fold"),
     })
   end
 }
