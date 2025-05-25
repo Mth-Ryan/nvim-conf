@@ -19,6 +19,7 @@ local M = {
 
     require("lazy").setup({
       require("plugins.fleet-theme"),
+      require("plugins.postmodern-theme"),
       require("plugins.telescope"),
       require("plugins.treesitter"),
       require("plugins.mason"),

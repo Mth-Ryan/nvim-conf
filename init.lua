@@ -9,6 +9,7 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.guifont = 'JetBrainsMono NFM:h10'
+vim.g.theme = "postmodern"
 vim.g.neovide_cursor_antialiasing = true
 vim.g.neovide_cursor_vfx_mode = 'sonicboom'
 vim.g.neovide_transparency = 1.0
@@ -25,7 +26,7 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 require("plugins").setup()
 
 -- Theme
-utils.load_theme("fleet")
+utils.load_theme()
 
 -- Set extra path
 utils.append_path({

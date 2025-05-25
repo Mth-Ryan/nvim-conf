@@ -1,30 +1,30 @@
-local colors = {
-  blue   = "#52a7f6",
-  green  = "#afcb85",
-  orange = "#efb080",
-  pink   = "#d898d8",
-  fg     = "#d6d6dd",
-  light  = "#6d6d6d",
-  bg     = "#181818",
-  darker = "#292929",
-  dark   = "#494949",
-}
+local utils = require("utils")
 
-local theme = {
-  normal = {
-    a = { fg = colors.bg, bg = colors.orange, gui = 'bold' },
-    b = { fg = colors.fg, bg = colors.dark },
-    c = { fg = colors.light, bg = colors.darker },
-  },
-  insert = { a = { fg = colors.bg, bg = colors.green, gui = 'bold' } },
-  visual = { a = { fg = colors.bg, bg = colors.pink, gui = 'bold' } },
-  replace = { a = { fg = colors.bg, bg = colors.blue, gui = 'bold' } },
-  inactive = {
-    a = { fg = colors.fg, bg = colors.dark, gui = 'bold' },
-    b = { fg = colors.fg, bg = colors.darker },
-    c = { fg = colors.light, bg = colors.darker },
-  },
-}
+local colors_list = utils.require_all_to_table(
+  "plugins.lualine-themes", 
+  utils.path_join(vim.fn.stdpath("config"), "lua", "plugins", "lualine-themes")
+)
+
+function get_theme()
+  local color_name = vim.g.theme or "fleet"
+  local colors = colors_list[color_name] or colors_list["fleet"]
+
+  return {
+    normal = {
+      a = { fg = colors.bg, bg = colors.normal, gui = 'bold' },
+      b = { fg = colors.fg, bg = colors.bg_alt_2 },
+      c = { fg = colors.fg_alt, bg = colors.bg_alt_1 },
+    },
+    insert = { a = { fg = colors.bg, bg = colors.insert, gui = 'bold' } },
+    visual = { a = { fg = colors.bg, bg = colors.visual, gui = 'bold' } },
+    replace = { a = { fg = colors.bg, bg = colors.replace, gui = 'bold' } },
+    inactive = {
+      a = { fg = colors.fg, bg = colors.bg_alt_2, gui = 'bold' },
+      b = { fg = colors.fg, bg = colors.bg_alt_1 },
+      c = { fg = colors.fg_alt, bg = colors.bg_alt_1 },
+    },
+  }
+end
 
 local M = {
   "nvim-lualine/lualine.nvim",
@@ -36,7 +36,7 @@ local M = {
   config = function()
     require('lualine').setup({
       options = {
-        theme = theme,
+        theme = get_theme(),
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' }
       },
